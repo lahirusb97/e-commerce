@@ -6,10 +6,14 @@ export default function SpecialOffer() {
 
       <div className="flex justify-between ">
         <div className="flex">
-          <p className="font-medium line-through px-2 text-xs">Rs: 20 000</p>
-          <p className="font-medium text-xs">Rs: 15 000</p>
+          <p className="font-medium line-through px-2 text-xs mobile:text-base">
+            Rs: 20 000
+          </p>
+          <p className="font-medium text-xs mobile:text-base">Rs: 15 000</p>
         </div>
-        <h3 className="font-semibold text-cmain text-xs px-2">20% off</h3>
+        <h3 className="font-semibold text-cmain text-xs px-2 mobile:text-base font-black">
+          20% off
+        </h3>
       </div>
       <div className="flex items-center w-full">
         <h6 className="w-1/2 text-center font-semibold ">00:01:06</h6>

@@ -13,10 +13,19 @@ import {
   where,
 } from "firebase/firestore";
 import "../FirebaseConfig";
-
+import { motion } from "framer-motion";
 export default function Home() {
   const [offerData, setOfferData] = useState([]);
   const [currentHero, setCurrentHero] = useState(0);
+  const [isSelect, setIsSelect] = useState(false);
+  const variants = {
+    hide: { opacity: 0 },
+    show: { opacity: 1 },
+  };
+  const btnVariants = {
+    gray: { backgroundColor: "#ADADAD" }, // gray color
+    mainc: { backgroundColor: "#EC442D" }, // purple color
+  };
   useEffect(() => {
     const db = getFirestore();
 
@@ -41,22 +50,74 @@ export default function Home() {
     getoffers();
   }, []);
 
+  useEffect(() => {
+    if (offerData.length > 0) {
+      const intervalId = setInterval(() => {
+        setCurrentHero((prevHero) => {
+          if (prevHero === offerData.length - 1) {
+            return 0;
+          } else {
+            return prevHero + 1;
+          }
+        });
+        setIsSelect(true);
+      }, 5000);
+
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, [currentHero, offerData]);
+
   return (
     <div>
       <MainNav />
       {offerData.length > 0 ? (
-        <div>
-          <div className="w-full h-auto relative">
-            <img className="object-contain m-auto " src={samplehero} />
+        <div className="relative">
+          <div className="w-full h-heroimg relative">
+            <motion.img
+              // style={{ opacity: isSelect ? "1" : "0" }}
+              animate={isSelect ? "hide" : "show"}
+              variants={variants}
+              transition={{ duration: isSelect ? 0 : 0.5 }}
+              className="object-contain m-auto"
+              src={offerData[currentHero]["Img"]}
+              onLoad={() => {
+                const intervalId = setInterval(() => {
+                  setIsSelect(false);
+                }, 500);
+
+                // Clean up the interval when the button is clicked again or when count reaches a certain value
+                const stopInterval = () => {
+                  clearInterval(intervalId);
+                };
+                setTimeout(stopInterval, 1000);
+              }}
+            />
             <div className="absolute bottom-0 left-0">
               <SpecialOffer />
             </div>
-            {console.log(offerData.length)}
           </div>
-          <div className="flex justify-center flex-row pt-2">
-            {offerData.length > 1 ? (
-              offerData.map((Item) => (
-                <div className="w-2 h-2 sm:w-4 sm:h-4 rounded-full bg-gray-600 mx-1"></div>
+          <div className="flex justify-center flex-row pt-2 absolute left-1/2 -translate-x-1/2 bottom-0 tra z-30">
+            {offerData.length > 0 ? (
+              offerData.map((Item, index) => (
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  variants={btnVariants}
+                  animate={currentHero == index ? "mainc" : "gray"}
+                  transition={{ duration: 0.5 }}
+                  onClick={() => {
+                    currentHero !== index
+                      ? setIsSelect(true)
+                      : setIsSelect(false);
+                    setCurrentHero(index);
+                  }}
+                  key={"heronav" + index}
+                  className={`w-2 h-2 sm:w-4 sm:h-4 rounded-full
+                   
+                   mx-1`}
+                ></motion.button>
               ))
             ) : (
               <></>
