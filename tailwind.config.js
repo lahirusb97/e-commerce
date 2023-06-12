@@ -30,6 +30,22 @@ export default {
       },
       height: {
         heroimg: "400px",
+        boxh: "200px",
+      },
+      width: {
+        boxw: "220px",
+      },
+      minHeight: {
+        boxh: "200px",
+      },
+      minWidth: {
+        boxw: "220px",
+      },
+      maxHeight: {
+        boxh: "200px",
+      },
+      maxWidth: {
+        boxw: "220px",
       },
     },
   },

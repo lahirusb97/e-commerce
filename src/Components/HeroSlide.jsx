@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
 import MainNav from "../Components/MainNav";
 import samplehero from "../assets/samplehero.png";
+//ofer section component
 import SpecialOffer from "../Components/SpecialOffer";
+//firebase databse depandancy
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import "../FirebaseConfig";
+//animation dependancy
 import { motion } from "framer-motion";
 export default function HeroSlide() {
+  //Storing Database data
   const [offerData, setOfferData] = useState([]);
+  //current offer Slideing Item
   const [currentHero, setCurrentHero] = useState(0);
+  //animation switch fade img
   const [isSelect, setIsSelect] = useState(false);
+
+  //Animations fade in out
   const variants = {
     hide: { opacity: 0 },
     show: { opacity: 1 },
@@ -17,6 +25,8 @@ export default function HeroSlide() {
     gray: { backgroundColor: "#ADADAD" }, // gray color
     mainc: { backgroundColor: "#EC442D" }, // purple color
   };
+
+  //getting data from Database offer documents
   useEffect(() => {
     const db = getFirestore();
 
@@ -41,6 +51,7 @@ export default function HeroSlide() {
     getoffers();
   }, []);
 
+  //Animations for offer item section
   useEffect(() => {
     if (offerData.length > 0) {
       const intervalId = setInterval(() => {
@@ -66,11 +77,10 @@ export default function HeroSlide() {
         <div className="relative">
           <div className="w-full h-auto relative">
             <motion.img
-              // style={{ opacity: isSelect ? "1" : "0" }}
               animate={isSelect ? "hide" : "show"}
               variants={variants}
               transition={{ duration: isSelect ? 0 : 0.5 }}
-              className="object-contain m-auto"
+              className="object-cover m-auto"
               src={offerData[currentHero]["Img"]}
               onLoad={() => {
                 const intervalId = setInterval(() => {
@@ -84,7 +94,7 @@ export default function HeroSlide() {
                 setTimeout(stopInterval, 1000);
               }}
             />
-            <div className="absolute bottom-0 left-0">
+            <div className="sm:absolute bottom-0 left-0">
               <SpecialOffer />
             </div>
           </div>

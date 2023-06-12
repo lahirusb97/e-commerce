@@ -7,8 +7,7 @@ export default function SubNav() {
   const [categoryNav, setCategoryNav] = useState([]);
   useEffect(() => {
     const db = getFirestore();
-    // const storage = getStorage();
-    // const storageRef = ref(storage);
+
     const getCategory = async () => {
       const offerDataArray = [];
       const offerCollectionRef = collection(db, "Category");
@@ -42,7 +41,7 @@ export default function SubNav() {
           ))}
         </ul>
       </nav>
-      <div style={{ position: "relative" }}>
+      <div className="my-4" style={{ position: "relative" }}>
         <input
           type="text"
           placeholder="Search"
