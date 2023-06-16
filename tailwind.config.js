@@ -49,5 +49,13 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".custom-outline": {
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 1)",
+        },
+      });
+    },
+  ],
 };

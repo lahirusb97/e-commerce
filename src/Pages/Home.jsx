@@ -6,15 +6,16 @@ import { motion } from "framer-motion";
 import SubNav from "../Components/SubNav";
 import HeroSlide from "../Components/HeroSlide";
 import ItemBox from "../Components/ItemBox";
+
+import OfferSlide from "../Components/OfferSlide";
 export default function Home() {
   useEffect(() => {}, []);
 
   return (
     <div>
-      <MainNav />
+      <OfferSlide />
+      {/* <HeroSlide /> */}
 
-      <HeroSlide />
-      <SubNav />
       <div className="flex flex-wrap justify-around">
         <ItemBox />
       </div>
