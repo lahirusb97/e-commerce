@@ -8,6 +8,7 @@ import HeroSlide from "../Components/HeroSlide";
 import ItemBox from "../Components/ItemBox";
 
 import OfferSlide from "../Components/OfferSlide";
+import CategoryList from "../Components/Categories/CategoryList";
 export default function Home() {
   useEffect(() => {}, []);
 
@@ -16,9 +17,10 @@ export default function Home() {
       <OfferSlide />
       {/* <HeroSlide /> */}
 
-      <div className="flex flex-wrap justify-around">
+      {/* <div className="flex flex-wrap justify-around">
         <ItemBox />
-      </div>
+      </div> */}
+      <CategoryList />
     </div>
   );
 }

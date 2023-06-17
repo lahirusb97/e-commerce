@@ -34,6 +34,8 @@ export default {
       },
       width: {
         boxw: "220px",
+        boxmaxw: "1000px",
+        imgwidth: "600px",
       },
       minHeight: {
         boxh: "200px",
