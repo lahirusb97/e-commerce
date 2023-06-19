@@ -1,8 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MainNav from "../Components/MainNav";
 import Footer from "../Components/Footer";
-
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
+import CircularProgress from "@mui/material/CircularProgress";
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handlemessage = async (e) => {
+    e.preventDefault();
+    if (message.length > 0 && email.length > 0 && name.length > 0) {
+      try {
+        setLoading(true);
+
+        const db = getFirestore();
+        const docRef = await addDoc(collection(db, "Messages"), {
+          Name: name,
+          Email: email,
+          Message: message,
+        });
+
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+      }
+    } else {
+      setinputError(true);
+    }
+  };
+
   return (
     <div>
       <MainNav />
@@ -16,12 +50,13 @@ export default function Contact() {
             </p>
           </div>
           <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-8">
-            <form>
+            <form onSubmit={handlemessage}>
               <div class="mb-6">
                 <label for="name" class="block text-gray-700 font-bold mb-2">
                   Name
                 </label>
                 <input
+                  onChange={(e) => setName(e.target.value)}
                   type="text"
                   id="name"
                   name="name"
@@ -34,6 +69,7 @@ export default function Contact() {
                   Email Address
                 </label>
                 <input
+                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   id="email"
                   name="email"
@@ -46,6 +82,7 @@ export default function Contact() {
                   Message
                 </label>
                 <textarea
+                  onChange={(e) => setMessage(e.target.value)}
                   id="message"
                   name="message"
                   placeholder="Enter your message"
@@ -54,12 +91,16 @@ export default function Contact() {
                 ></textarea>
               </div>
               <div class="text-center">
-                <button
-                  type="submit"
-                  class="bg-indigo-500 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-600 transition duration-200"
-                >
-                  Submit
-                </button>
+                {loading ? (
+                  <CircularProgress />
+                ) : (
+                  <button
+                    type="submit"
+                    class="bg-indigo-500 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-600 transition duration-200"
+                  >
+                    Submit
+                  </button>
+                )}
               </div>
             </form>
           </div>

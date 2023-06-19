@@ -5,8 +5,7 @@ import "../FirebaseConfig";
 import { motion } from "framer-motion";
 import SubNav from "../Components/SubNav";
 import HeroSlide from "../Components/HeroSlide";
-import ItemBox from "../Components/ItemBox";
-
+import Footer from "../Components/Footer";
 import OfferSlide from "../Components/OfferSlide";
 import CategoryList from "../Components/Categories/CategoryList";
 export default function Home() {
@@ -20,7 +19,9 @@ export default function Home() {
       {/* <div className="flex flex-wrap justify-around">
         <ItemBox />
       </div> */}
+
       <CategoryList />
+      <Footer />
     </div>
   );
 }

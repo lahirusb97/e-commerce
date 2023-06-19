@@ -9,3 +9,28 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.9),
     0 2px 4px -1px rgba(0, 0, 0, 0.8);
 }
+.slick-dots li.slick-active button:before {
+  color: rgb(255, 255, 255) !important;
+}
+.slick-dots li button:before {
+  font-size: 1rem;
+  line-height: 20px;
+}
+.slick-next:before {
+  background-color: black;
+  padding: 0.5rem;
+}
+
+.active {
+  position: relative;
+}
+
+.active.active::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white; /* Customize the underline color */
+}

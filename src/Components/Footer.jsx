@@ -1,5 +1,9 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import facebook from "../assets/Icons/facebook.svg";
+import youtube from "../assets/Icons/youtube.svg";
+import twitter from "../assets/Icons/twitter.svg";
+import instagram from "../assets/Icons/instagram.svg";
 export default function Footer() {
   return (
     <div>
@@ -7,29 +11,32 @@ export default function Footer() {
         <div class="container mx-auto py-8 px-4">
           <div class="flex flex-col md:flex-row justify-center">
             <div class="mb-8 md:mb-0">
-              <h3 class="text-lg font-bold mb-4 px-4">Connect with Us</h3>
-              <div class="flex space-x-4">
-                <a href="#" class="text-white hover:text-gray-300">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="text-white hover:text-gray-300">
-                  <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="text-white hover:text-gray-300">
-                  <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="text-white hover:text-gray-300">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
+              <div class="mb-8 md:mb-0">
+                <div class="flex space-x-4 my-4">
+                  <a href="#" class="text-white hover:text-gray-300">
+                    <img src={facebook} />
+                  </a>
+                  <a href="#" class="text-white hover:text-gray-300">
+                    <img src={youtube} />
+                  </a>
+                  <a href="#" class="text-white hover:text-gray-300">
+                    <img src={instagram} />
+                  </a>
+                  <a href="#" class="text-white hover:text-gray-300">
+                    <img src={twitter} />
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="mb-8 md:mb-0">
               <h3 class="text-lg font-bold mb-4">Customer Support</h3>
               <ul class="space-y-2">
                 <li>
-                  <a href="#" class="text-white hover:text-gray-300">
+                  <Link
+                    to={"/contact"}
+                    href="#"
+                    class="text-white hover:text-gray-300"
+                  >
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#" class="text-white hover:text-gray-300">

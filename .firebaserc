@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "e-commerce-6eb76"
-  }
+    "default": "e-commerce-9774a",
+    "l": "e-commerce-9774a"
+  },
+  "targets": {},
+  "etags": {}
 }

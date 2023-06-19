@@ -3,8 +3,10 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { getFirestore, doc, onSnapshot } from "firebase/firestore";
 import Menu from "../../assets/Icons/menu.svg";
+import { motion } from "framer-motion";
 export default function CatNav({ curentCate }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [select, setSelect] = useState(0);
 
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
@@ -49,13 +51,17 @@ export default function CatNav({ curentCate }) {
         </button>
         <div className="font-semibold capitalize">
           <ul className="mt-20">
-            {CategoryList.map((e) => (
+            {CategoryList.map((e, i) => (
               <li
+                key={"q" + i}
                 onClick={() => {
                   curentCate(e);
                   setIsOpen(false);
+                  setSelect(i);
                 }}
-                className="p-2 border-2 border-gray-300 my-2 cursor-pointer"
+                className={`${
+                  i == select ? "bg-black text-white" : "bg-white text-black"
+                } p-2 border-2  hover:bg-black hover:text-white border-gray-300 my-2 cursor-pointer`}
               >
                 <a>{e}</a>
               </li>

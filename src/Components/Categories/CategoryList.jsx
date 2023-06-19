@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CatNav from "./CatNav";
 import ItemBox from "./ItemBox";
+import { motion } from "framer-motion";
 import {
   getFirestore,
   collection,
@@ -37,12 +38,16 @@ export default function CategoryList() {
   return (
     <div className="">
       <hr className="bg-black w-full h-2" />
+
       <CatNav curentCate={openAddItem} />
+      <h1 className="text-6xl font-bold px-4 py-10 bg-slate-300 capitalize">
+        {selectedCat}
+      </h1>
       <div className="flex justify-center flex-wrap">
         {items.map((e) => (
-          <div>
+          <motion.div whileHover={{ scale: 1.1 }}>
             <ItemBox items={e} />
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

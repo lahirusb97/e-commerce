@@ -21,6 +21,10 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import OfferBox from "./OfferBox";
+import facebook from "../assets/Icons/facebook.svg";
+import youtube from "../assets/Icons/youtube.svg";
+import twitter from "../assets/Icons/twitter.svg";
+import instagram from "../assets/Icons/instagram.svg";
 
 export default function OfferSlide() {
   const [items, setItems] = useState([]);
@@ -91,6 +95,40 @@ export default function OfferSlide() {
           All Type of
           <br /> Mobile Deviced & <br /> Assessories
         </h2>
+        <div class="flex space-x-4 my-4 relative z-50 ">
+          <a href="#" class="text-white hover:text-gray-300">
+            <motion.img
+              whileHover={{ scale: 1.4 }}
+              whileTap={{ scale: 0.9 }}
+              src={facebook}
+              className="scale-150 px-2"
+            />
+          </a>
+          <a href="#" class="text-white hover:text-gray-300">
+            <motion.img
+              whileHover={{ scale: 1.4 }}
+              whileTap={{ scale: 0.9 }}
+              src={youtube}
+              className="scale-150 px-2"
+            />
+          </a>
+          <a href="#" class="text-white hover:text-gray-300">
+            <motion.img
+              whileHover={{ scale: 1.4 }}
+              whileTap={{ scale: 0.9 }}
+              src={instagram}
+              className="scale-150 px-2"
+            />
+          </a>
+          <a href="#" class="text-white hover:text-gray-300">
+            <motion.img
+              whileHover={{ scale: 1.4 }}
+              whileTap={{ scale: 0.9 }}
+              src={twitter}
+              className="scale-150 px-2"
+            />
+          </a>
+        </div>
         <div className="mobile:w-3/4 2xl:w-boxmaxw w-screen">
           <Slider {...settings}>
             {items.map((e, i) => (
