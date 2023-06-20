@@ -38,9 +38,7 @@ export default function CatNav({ curentCate }) {
           <img src={Menu} alt="Menu Icon" />
         </span>
       </button>
-
       <Drawer open={isOpen} onClose={toggleDrawer} direction="left">
-        {" "}
         <button
           onClick={() => {
             setIsOpen(false);
@@ -49,7 +47,11 @@ export default function CatNav({ curentCate }) {
         >
           X
         </button>
+
         <div className="font-semibold capitalize">
+          <h1 className="text-center top-10 left-1/2 -translate-x-1/2 text-xl font-semibold absolute">
+            categories
+          </h1>
           <ul className="mt-20">
             {CategoryList.map((e, i) => (
               <li

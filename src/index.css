@@ -16,10 +16,6 @@
   font-size: 1rem;
   line-height: 20px;
 }
-.slick-next:before {
-  background-color: black;
-  padding: 0.5rem;
-}
 
 .active {
   position: relative;

@@ -33,11 +33,13 @@ export default function OfferSlide() {
 
   var settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 0,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 1024,
@@ -88,11 +90,14 @@ export default function OfferSlide() {
       </div>
       <div>
         <HeroSlicer />
-        <div className="max-w-screen-xlm-auto px-4 flex items-center justify-center flex-col">
-          <div className="mobile:w-3/4 2xl:w-boxmaxw w-screen">
+        <div className="">
+          <h1 className="pt-2 text-yellow-500 font-semibold text-lg text-center">
+            Hot Deals
+          </h1>
+          <div className="px-12">
             <Slider {...settings}>
               {items.map((e, i) => (
-                <div className="m-4" key={"s" + i}>
+                <div className="" key={"s" + i}>
                   <OfferBox itemData={e} />
                 </div>
               ))}

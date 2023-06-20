@@ -36,12 +36,12 @@ export default function CategoryList() {
   }, [selectedCat]);
 
   return (
-    <div className="">
-      <hr className="bg-black w-full h-2" />
-
-      <CatNav curentCate={openAddItem} />
-      <h1 className="text-6xl font-bold px-4 py-10 bg-slate-300 capitalize">
-        {selectedCat}
+    <div className=" bg-gray-950">
+      <div className="bg-white">
+        <CatNav curentCate={openAddItem} />
+      </div>
+      <h1 className=" text-2xl text-center font-bold px-4 py-4 bg-slate-300 capitalize">
+        <span className="font-black">Category -</span> {selectedCat}
       </h1>
       <div className="flex justify-center flex-wrap">
         {items.map((e) => (

@@ -18,7 +18,7 @@ export default function About() {
                 alt="FlipMobile"
                 className="w-full mb-4"
               />
-              <p className="text-gray-700">
+              <p className="text-gray-600 mb-8 font-bold mt-2">
                 Welcome to FlipMobile, your premier online destination for the
                 latest mobile devices and accessories. We are dedicated to
                 providing you with a seamless and convenient shopping

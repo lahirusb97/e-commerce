@@ -58,10 +58,10 @@ export default function OfferBox({ itemData }) {
     };
   }, []);
   return (
-    <div className="w-72 p-4 bg-gray-800 rounded-2xl shadow-lg">
+    <div className=" p-4 bg-white shadow-lg ">
       <div className="relative">
         <img
-          className="object-cover bg-center w-72 h-40 rounded-t-xl"
+          className="object-contain bg-center w-96 h-40 "
           src={itemData.Img}
           alt="Product"
         />
@@ -70,21 +70,22 @@ export default function OfferBox({ itemData }) {
         </div>
       </div>
       <div className="text-center mt-1">
-        <h2 className="font-semibold text-lg text-white">{itemData.Name}</h2>
-        <h3 className="text-white ">
-          RS{" "}
-          {itemData["Price"] - (itemData.Price * itemData["Precentage"]) / 100}
-        </h3>
-
-        <button
-          onClick={() => {}}
-          className="bg-red-600 text-white px-4 py-2 rounded font-semibold"
-        >
-          Order Now
-        </button>
         <h3 className="font-semibold text-xl bg-white text-black m-2">
           {countdown}
         </h3>
+        <h2 className="font-semibold text-lg text-black">{itemData.Name}</h2>
+        <h3 className="font-black text-2xl text-red-600 ">
+          RS:{" "}
+          {itemData["Price"] - (itemData.Price * itemData["Precentage"]) / 100}
+          .00
+        </h3>
+        <p className="text-white ">{itemData["Discription"]}</p>
+        <button
+          onClick={() => {}}
+          className="bg-orange-600 text-white px-4 py-2 rounded font-semibold"
+        >
+          Order Now
+        </button>
       </div>
     </div>
   );

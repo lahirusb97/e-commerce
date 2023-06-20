@@ -4,12 +4,21 @@ import { NavLink } from "react-router-dom";
 import Mail from "../assets/Icons/mail.svg";
 import mobile from "../assets/Icons/mobile.svg";
 import cart from "../assets/Icons/cart.svg";
+import { useLocation, useNavigate } from "react-router-dom";
+
 export default function MainNav() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const scrollToTop = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
+    console.log(location.pathname);
+    if (location.pathname === "/") {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth",
+      });
+    } else {
+      navigate("/");
+    }
   };
   return (
     <div className="flex items-center justify-center flex-wrap h-14 bg-black bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg">
@@ -22,7 +31,7 @@ export default function MainNav() {
             <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <NavLink to={"/contact"}>Special Offers</NavLink>
+            <NavLink to={"/offers"}>Special Offers</NavLink>
           </li>
           <li>
             <a onClick={scrollToTop} href="#">

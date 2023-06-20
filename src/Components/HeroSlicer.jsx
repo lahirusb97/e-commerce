@@ -43,7 +43,7 @@ export default function HeroSliderComponent() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="bg-black opacity-50 absolute inset-0"></div>
               <div className="flex flex-col items-center text-white text-center relative z-50">
-                <h2 className="font-black text-5xl sm:text-6xl leading-tight sm:leading-snug mobile:mt-40  text-white custom-outline text-center">
+                <h2 className="font-black text-5xl sm:text-6xl leading-tight sm:leading-snug mobile:mt-40  text-yellow-400 custom-outline text-center">
                   All Type of Mobile Devices & Accessories
                 </h2>
                 <h3 className="text-3xl text-white">

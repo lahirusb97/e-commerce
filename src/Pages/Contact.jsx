@@ -9,6 +9,7 @@ import {
   doc,
 } from "firebase/firestore";
 import CircularProgress from "@mui/material/CircularProgress";
+import contactus from "../assets/contact.jpg";
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -43,15 +44,16 @@ export default function Contact() {
       <section class="bg-gray-100 py-12">
         <div class="container mx-auto px-4">
           <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
-            <p class="text-gray-600 mb-8">
+            <img src={contactus} />
+
+            <p className="text-gray-600 mb-8 font-bold mt-2">
               Have any questions or inquiries? We'd love to hear from you. Fill
               out the form below and we'll get back to you as soon as possible.
             </p>
           </div>
-          <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-8">
+          <div className="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-8">
             <form onSubmit={handlemessage}>
-              <div class="mb-6">
+              <div className="mb-6">
                 <label for="name" class="block text-gray-700 font-bold mb-2">
                   Name
                 </label>
@@ -61,10 +63,10 @@ export default function Contact() {
                   id="name"
                   name="name"
                   placeholder="Enter your name"
-                  class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
                 />
               </div>
-              <div class="mb-6">
+              <div className="mb-6">
                 <label for="email" class="block text-gray-700 font-bold mb-2">
                   Email Address
                 </label>
@@ -74,11 +76,14 @@ export default function Contact() {
                   id="email"
                   name="email"
                   placeholder="Enter your email address"
-                  class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
                 />
               </div>
               <div class="mb-6">
-                <label for="message" class="block text-gray-700 font-bold mb-2">
+                <label
+                  for="message"
+                  className="block text-gray-700 font-bold mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -87,7 +92,7 @@ export default function Contact() {
                   name="message"
                   placeholder="Enter your message"
                   rows="4"
-                  class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
                 ></textarea>
               </div>
               <div class="text-center">
@@ -96,7 +101,7 @@ export default function Contact() {
                 ) : (
                   <button
                     type="submit"
-                    class="bg-indigo-500 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-600 transition duration-200"
+                    className="bg-indigo-500 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-600 transition duration-200"
                   >
                     Submit
                   </button>

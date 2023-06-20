@@ -59,7 +59,7 @@ export default function ItemBox({ items }) {
     }
   };
   return (
-    <div className="m-4">
+    <div className="m-4 bg-white">
       <div
         onMouseOver={() => {
           setSelect(true);

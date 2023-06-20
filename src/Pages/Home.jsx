@@ -19,8 +19,9 @@ export default function Home() {
       {/* <div className="flex flex-wrap justify-around">
         <ItemBox />
       </div> */}
+      <div style={{ height: "450px" }} className="w-full bg-slate-800"></div>
 
-      {/* <CategoryList /> */}
+      <CategoryList />
       <Footer />
     </div>
   );

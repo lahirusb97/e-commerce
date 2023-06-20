@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import MainNav from "../Components/MainNav";
 import samplehero from "../assets/samplehero.png";
+import Slider from "react-slick";
 //ofer section component
-import SpecialOffer from "../Components/SpecialOffer";
+
 //firebase databse depandancy
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import "../FirebaseConfig";
@@ -94,9 +95,6 @@ export default function HeroSlide() {
                 setTimeout(stopInterval, 1000);
               }}
             />
-            <div className="sm:absolute bottom-0 left-0">
-              <SpecialOffer />
-            </div>
           </div>
           <div className="flex justify-center flex-row pt-2 absolute left-1/2 -translate-x-1/2 bottom-0 tra z-30">
             {offerData.length > 0 ? (
