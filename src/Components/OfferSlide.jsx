@@ -25,7 +25,7 @@ import facebook from "../assets/Icons/facebook.svg";
 import youtube from "../assets/Icons/youtube.svg";
 import twitter from "../assets/Icons/twitter.svg";
 import instagram from "../assets/Icons/instagram.svg";
-
+import HeroSlicer from "./HeroSlicer";
 export default function OfferSlide() {
   const [items, setItems] = useState([]);
 
@@ -83,60 +83,21 @@ export default function OfferSlide() {
   }, []);
   return (
     <div className="w-full h-screen relative">
-      <div className="relative z-10">
+      <div className="absolute top-0 w-full z-10">
         <MainNav />
       </div>
-      <div className="h-screen max-w-screen-xl m-auto px-4 flex items-center justify-center flex-col">
-        <img
-          className="w-full h-screen object-cover bg-center absolute top-0 left-0"
-          src={hero}
-        />
-        <h2 className="z-20 relative font-black text-5xl sm:text-6xl leading-tight sm:leading-snug mobile:mt-40  text-white custom-outline text-center">
-          All Type of
-          <br /> Mobile Deviced & <br /> Assessories
-        </h2>
-        <div class="flex space-x-4 my-4 relative z-50 ">
-          <a href="#" class="text-white hover:text-gray-300">
-            <motion.img
-              whileHover={{ scale: 1.4 }}
-              whileTap={{ scale: 0.9 }}
-              src={facebook}
-              className="scale-150 px-2"
-            />
-          </a>
-          <a href="#" class="text-white hover:text-gray-300">
-            <motion.img
-              whileHover={{ scale: 1.4 }}
-              whileTap={{ scale: 0.9 }}
-              src={youtube}
-              className="scale-150 px-2"
-            />
-          </a>
-          <a href="#" class="text-white hover:text-gray-300">
-            <motion.img
-              whileHover={{ scale: 1.4 }}
-              whileTap={{ scale: 0.9 }}
-              src={instagram}
-              className="scale-150 px-2"
-            />
-          </a>
-          <a href="#" class="text-white hover:text-gray-300">
-            <motion.img
-              whileHover={{ scale: 1.4 }}
-              whileTap={{ scale: 0.9 }}
-              src={twitter}
-              className="scale-150 px-2"
-            />
-          </a>
-        </div>
-        <div className="mobile:w-3/4 2xl:w-boxmaxw w-screen">
-          <Slider {...settings}>
-            {items.map((e, i) => (
-              <div className="m-4" key={"s" + i}>
-                <OfferBox itemData={e} />
-              </div>
-            ))}
-          </Slider>
+      <div>
+        <HeroSlicer />
+        <div className="max-w-screen-xlm-auto px-4 flex items-center justify-center flex-col">
+          <div className="mobile:w-3/4 2xl:w-boxmaxw w-screen">
+            <Slider {...settings}>
+              {items.map((e, i) => (
+                <div className="m-4" key={"s" + i}>
+                  <OfferBox itemData={e} />
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@ export default function Home() {
         <ItemBox />
       </div> */}
 
-      <CategoryList />
+      {/* <CategoryList /> */}
       <Footer />
     </div>
   );

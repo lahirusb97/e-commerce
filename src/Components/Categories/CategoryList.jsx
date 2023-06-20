@@ -34,7 +34,7 @@ export default function CategoryList() {
     // Cleanup the listener when the value changes
     return () => unsubscribe();
   }, [selectedCat]);
-  console.log(items);
+
   return (
     <div className="">
       <hr className="bg-black w-full h-2" />
