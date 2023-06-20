@@ -34,8 +34,9 @@ export default function CatNav({ curentCate }) {
   return (
     <div className="relative z-50">
       <button className="p-4 cursor-pointer" onClick={toggleDrawer}>
-        <span>
+        <span className="flex items-center font-semibold text-lg">
           <img src={Menu} alt="Menu Icon" />
+          Menu
         </span>
       </button>
       <Drawer open={isOpen} onClose={toggleDrawer} direction="left">

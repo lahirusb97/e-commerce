@@ -8,9 +8,10 @@ import {
   query,
   where,
   getDoc,
-  getDocs,
+  doc,
   onSnapshot,
 } from "firebase/firestore";
+
 export default function CategoryList() {
   const [selectedCat, setSelectedCat] = useState("");
   const [items, setItems] = useState([]);
@@ -18,6 +19,21 @@ export default function CategoryList() {
   const openAddItem = (data) => {
     setSelectedCat(data);
   };
+  const [CategoryList, setCategoryList] = useState([]);
+  useEffect(() => {
+    const db = getFirestore();
+    const unsub = onSnapshot(
+      doc(db, "/Category/FMjKPsKH4uZQqnwqbPHf/"),
+      (doc) => {
+        if (doc.exists()) {
+          setCategoryList(doc.data()["Category_list"]);
+        } else {
+          setCategoryList([]);
+        }
+      }
+    );
+  }, []);
+
   useEffect(() => {
     const db = getFirestore();
     const citiesRef = collection(db, "Product");
@@ -40,9 +56,44 @@ export default function CategoryList() {
       <div className="bg-white">
         <CatNav curentCate={openAddItem} />
       </div>
-      <h1 className=" text-2xl text-center font-bold px-4 py-4 bg-slate-300 capitalize">
-        <span className="font-black">Category -</span> {selectedCat}
-      </h1>
+
+      <div className="flex justify-center">
+        <ul className="flex">
+          <li
+            onClick={() => {
+              setSelectedCat("mobile");
+            }}
+            className="text-white p-2  capitalize cursor-pointer text-xl"
+          >
+            <p>Mobile</p>
+          </li>
+          <li
+            onClick={() => {
+              setSelectedCat("Tablets");
+            }}
+            className="text-white p-2  capitalize cursor-pointer text-xl"
+          >
+            <p>Tablets</p>
+          </li>
+          <li
+            onClick={() => {
+              setSelectedCat("MacBook & Mac");
+            }}
+            className="text-white p-2  capitalize cursor-pointer text-xl"
+          >
+            <p>MacBook & Mac</p>
+          </li>
+          <li
+            onClick={() => {
+              setSelectedCat("watch");
+            }}
+            className="text-white p-2  capitalize cursor-pointer text-xl"
+          >
+            <p>Watch</p>
+          </li>
+        </ul>
+      </div>
+
       <div className="flex justify-center flex-wrap">
         {items.map((e) => (
           <motion.div whileHover={{ scale: 1.1 }}>

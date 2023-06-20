@@ -26,7 +26,6 @@ export default function HeroSliderComponent() {
           slidingDuration: 500,
           slidingDelay: 100,
 
-          onSliding: (nextSlide) => setCurrentSlide(nextSlide),
           onBeforeSliding: (previousSlide, nextSlide) =>
             console.debug(
               "onBeforeSliding(previousSlide, nextSlide): ",
