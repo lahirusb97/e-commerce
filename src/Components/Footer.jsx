@@ -11,7 +11,7 @@ import insta from "../assets/Icons/insta.svg";
 export default function Footer() {
   return (
     <div>
-      <footer class="bg-gray-900 text-white">
+      <footer class="bg-gray-900 text-white font-mono">
         <div class="container mx-auto py-8 px-4">
           <div class="flex flex-col md:flex-row justify-evenly">
             <ul>
