@@ -11,11 +11,6 @@ import ty from "../assets/Icons/ty.svg";
 import insta from "../assets/Icons/insta.svg";
 
 export default function HeroSliderComponent() {
-  const bogliasco = "https://i.imgur.com/Gu5Cznz.jpg";
-  const countyClare = "https://i.imgur.com/idjXzVQ.jpg";
-  const craterRock = "https://i.imgur.com/8DYumaY.jpg";
-  const giauPass = "https://i.imgur.com/8IuucQZ.jpg";
-
   return (
     <div>
       <HeroSlider
